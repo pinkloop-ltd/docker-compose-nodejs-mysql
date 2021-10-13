@@ -1,15 +1,15 @@
-version: '3.1'
+version: "3.1"
 services:
   security:
     build: ./sample-service
     ports:
-     - "8123:8123"
+      - "80:8123"
     depends_on:
-     - db
+      - db
     environment:
-     - DATABASE_HOST=db
+      - DATABASE_HOST=db
     volumes:
-     - ./sample-service/api:/app/api
+      - ./sample-service/api:/app/api
   db:
     build: ./database-service
     command: --default-authentication-plugin=mysql_native_password
